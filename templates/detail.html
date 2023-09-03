@@ -1,0 +1,48 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% comment %} 
+name
+slug
+brand
+category
+description
+features
+price
+colors
+sizes
+availability
+rating
+num
+seller
+seller
+img
+created
+updated
+{% endcomment %}
+<section class="section-name padding-y-sm">
+      <div class="container card mb-3 mt-5 shadow bg-body rounded" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body ">
+              <h5 class="card-title">{{content.name}} </h5>
+              <sup>Item Rating: {{content.rating}}</sup>
+              <p class="card-text">{{content.description}}</p>
+              <strong class="card-text text-warning">Price:- {{content.price}} Taka</strong>
+              <p class="card-text">{{content.features}}</p>
+              <p class="card-text">Size {{content.sizes}} | Color {{content.colors}}</p>
+              <p class="card-text">Seller :- {{content.seller_name}} | Rating :- {{content.seller_rating}}</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+ </section>
+ <!-- ========================= SECTION  END// ========================= -->
+ {% endblock %}
