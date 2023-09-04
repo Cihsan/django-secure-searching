@@ -7,15 +7,15 @@
 
 <section class="section-name padding-y-sm">
 	<div class="container">
-	   <h4 class="title-page">Available Items {{count}}</h4>
-	   {% comment %} {% endif %} {% endcomment %}
+	   <h4 class="title-page">Available Items {{count}} </h4>
+	   {% if count %}
+	   <p class='m-2' style='color:#6f42c1'>You can search item Name,Description,Price,Category,Feature,Brand,Color,Size,Seller Name</p>
+	   {% endif %}
 	   <div class="row me-2 ms-2">
 		  {% for item in contents %}
 		  <div class="card shadow bg-body rounded me-4 mb-4 col-lg-2 col-md-4 col-sm-6">
-			 {% comment %} <img src="{{ item.img.url }}" style='height: 120px; overflow: hidden; width: 120px' class="card-img-top" alt="..."> {% endcomment %}
 			 <div class="card-body">
 				<h6 class="card-title">{{item.name}}</h6>
-				{% comment %} <small class="card-text">{{item.description}}</small> {% endcomment %}
 				<strong class="card-text text-warning">${{item.price}}</strong>
 				<small class="card-text text-secondary"></small>
 				<p class="card-text"><small class="text-muted">{{item.features}}</small></p>
@@ -24,18 +24,8 @@
 		  </div>
 		  {% endfor %}
 	   </div>
-	   {% comment %} <nav aria-label="Page navigation example">
-		  <ul class="pagination">
-			 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-			 <li class="page-item"><a class="page-link" href="#">1</a></li>
-			 <li class="page-item"><a class="page-link" href="#">2</a></li>
-			 <li class="page-item"><a class="page-link" href="#">3</a></li>
-			 <li class="page-item"><a class="page-link" href="#">Next</a></li>
-		  </ul>
-	   </nav> {% endcomment %}
+	   
 	</div>
-	{% comment %} {% include 'store.html' %} {% endcomment %}
-	</div><!-- container // -->
+	</div>
  </section>
- <!-- ========================= SECTION  END// ========================= -->
  {% endblock %}

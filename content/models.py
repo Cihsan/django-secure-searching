@@ -11,7 +11,7 @@ class Content(models.Model):
     price = models.IntegerField()   # 120.65
     colors = models.CharField(max_length=10)
     sizes = models.CharField(max_length=10)
-    availability = models.BooleanField()
+    availability = models.BooleanField(default=False,blank=True)
     rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
     num_reviews = models.IntegerField() 
     seller_name = models.CharField(max_length=50)

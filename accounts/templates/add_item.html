@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Add Item{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<h3 class='text-center text-info p-2 mt-3 mb-3'>Add a New Item </h3>
+<div class="form-group" style="width:75%; margin:auto;">
+
+<p>
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input class="btn btn-primary" type="submit" value="Submit">
+     </form>
+</p>
+
+{% comment %} <div class="container shadow bg-body rounded mx-auto">
+   <div class="">
+      <h4 class="card-title mb-3"></h4>
+      {% include 'includes/alerts.html' %}
+      <form action="{% url 'add-item' %}" method="POST">
+         {% csrf_token %}
+         <div class="row">
+            <div class="col">
+               <label>Item Name</label>
+               {{form.name}}
+            </div>
+            <div class="col">
+               <label>Brand</label>
+               {{form.brand}}
+            </div>
+            <div class="col">
+               <label>Category</label>
+               {{form.category}}
+            </div>
+            <div class="row">
+               <div class="col">
+                  <label>Price</label>
+                  {{form.price}}
+               </div>
+               <div class="col">
+                  <label>Color</label>
+                  {{form.colors}}
+               </div>
+               <div class="col">
+                  <label>Sizes</label>
+                  {{form.sizes}}
+               </div>
+               <div class="col">
+                  <label>Rating</label>
+                  {{form.rating}}
+               </div>
+               <div class="col">
+                  <label>Reviews</label>
+                  {{form.num_reviews}}
+               </div>
+            </div>
+            <div class="row">
+               <div class="col">
+                  <label>Features</label>
+                  {{form.features}}
+               </div>
+               <div class="col">
+                  <label>Seller</label>
+                  {{form.seller_name}}
+               </div>
+               <div class="col">
+                  <label>Seller Rating</label>
+                  {{form.seller_rating}}
+               </div>
+            </div>
+
+            <div class="">
+               <label>Description</label>
+               {{form.description}}
+            </div>
+            
+            <div class="">
+                <label>Image URL</label>
+                {{ form.img.url }}
+            </div>
+            
+            <div class="form-group mt-2">
+               <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+            
+      </form>
+      </div>
+   </div>
+   
+  
+</div> {% endcomment %}
+
+{% endblock %}

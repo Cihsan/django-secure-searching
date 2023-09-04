@@ -65,9 +65,10 @@ class search(ListView):
     
     def get_queryset(self):
         query = self.request.GET.get('q')
-        return Content.objects.filter(name__icontains=query).order_by('-created_at')
+        return Content.objects.filter(Q(name__icontains=query) |Q(description__icontains=query) |Q(category__icontains=query) |Q(price__icontains=query) |Q(features__icontains=query) |Q(brand__icontains=query) |Q(colors__icontains=query) |Q(sizes__icontains=query)|Q(seller_name__icontains=query)).order_by('-created_at')
 
 class itemDetailView(DetailView):
     model = Content
     context_object_name = 'content'
     template_name = 'detail.html'
+    

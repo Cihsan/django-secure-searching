@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<section class="section-content padding-y">
+<section class="section-content padding-y ">
 	<div class="card mx-auto shadow bg-body rounded" style="max-width:520px; margin-top:40px;">
 	   <article class="card-body">
 		  {% include 'includes/alerts.html' %}
@@ -12,27 +12,48 @@
 		  </header>
 		  <form action="{% url 'register' %}" method="POST">
 			 {% csrf_token %}
+			 
 			 <div class="form-row">
-				<div class="mb-3">
-				   <input type="text" class="form-control" id="username" placeholder="Username">
+				<div class='d-flex'>
+					<div class=" form-group me-5">
+						<label>Username</label><br>
+						{{form.username}}
+						{% comment %} <input type="text" class="form-control" id="username" placeholder="Username"> {% endcomment %}
+					</div>
+					<div class=" form-group">
+						<label>First Name</label><br>
+						{{form.first_name}}
+					   {% comment %} <input type="text" class="form-control" id="first_name" placeholder="First name"> {% endcomment %}
+					</div>
 				</div>
-				<div class="mb-3">
-				   <input type="text" class="form-control" id="first_name" placeholder="First name">
+				<div class='d-flex mt-2'>
+					<div class=" form-group me-5">
+						<label>Last Name</label><br>
+						{{form.last_name}}
+					   {% comment %} <input type="text" class="form-control" id="last_name" placeholder="Last name"> {% endcomment %}
+					</div>
+					<div class="form-group">
+						<label>Email</label><br>
+						{{form.email}}
+					   {% comment %} <input type="email" class="form-control" id="email" placeholder="Email Address"> {% endcomment %}
+					</div>
 				</div>
-				<div class="mb-3">
-				   <input type="text" class="form-control" id="last_name" placeholder="Last name">
+				
+				<div class='d-flex mt-2 '>
+					<div class="mb-3 form-group me-5">
+						<label>Password</label><br>
+						{{form.password1}}
+					   {% comment %} <input type="password" class="form-control" id="password" placeholder="Password"> {% endcomment %}
+					</div>
+					<div class="mb-3 form-group">
+						<label>Confirm Password</label><br>
+						{{form.password2}}
+					   {% comment %} <input type="password" class="form-control" id="password" placeholder="Repeat password"> {% endcomment %}
+					</div>
 				</div>
-				<div class="mb-3">
-				   <input type="email" class="form-control" id="email" placeholder="Email Address">
-				</div>
-				<div class="mb-3">
-				   <input type="password" class="form-control" id="password" placeholder="Password">
-				</div>
-				<div class="mb-3">
-				   <input type="password" class="form-control" id="password" placeholder="Repeat password">
-				</div>
-				<div class="form-group">
-				   <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+				
+				<div class="">
+				   <button type="submit" class="btn btn-primary btn-block"> Register</button>
 				</div>
 			 </div>
 			 {{ form.email.errors }}
